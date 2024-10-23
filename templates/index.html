@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squat Detection</title>
+</head>
+<body>
+    <h1>Squat Detection App</h1>
+    <h3>Choose Input Method:</h3>
+
+    <!-- Button to use live camera feed -->
+    <a href="{{ url_for('video_feed', source='camera') }}" target="_blank">
+        <button>Use Live Camera</button>
+    </a>
+
+    <h3>Or Upload a Video:</h3>
+    <!-- File upload form -->
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="video/*">
+        <button type="submit">Upload Video</button>
+    </form>
+
+    <h3>Squat Feedback:</h3>
+    <!-- Display the video feed -->
+    <img src="{{ url_for('video_feed', source='camera') }}" id="video_feed" alt="Video Feed" style="width: 50%; height: auto;">
+</body>
+</html>
